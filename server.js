@@ -16,6 +16,8 @@ function parseEnvList(env) {
   return env.split(',');
 }
 
+
+
 // Set up rate-limiting to avoid abuse of the public CORS Anywhere server.
 var checkRateLimit = require('./lib/rate-limit')(process.env.CORSANYWHERE_RATELIMIT);
 
@@ -44,6 +46,6 @@ cors_proxy.createServer({
     // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
     xfwd: false,
   },
-}).listen(port, host, function() {
+}).listen(port, host, function () {
   console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
